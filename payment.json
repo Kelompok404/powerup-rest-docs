@@ -1,0 +1,17 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Payment API",
+    "description": "Documentation for payment",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost/api/"
+    }
+  ],
+  "paths": {
+    "/payments": {},
+    "/refunds": {}
+  }
+}
