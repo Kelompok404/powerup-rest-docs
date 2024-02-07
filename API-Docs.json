@@ -668,15 +668,9 @@
     },
     "/auth/reset-password": {
       "post": {
-        "summary": "Get Token for Reset Password",
+        "summary": "Get Id for Reset Password",
         "tags": [
           "Authentication"
-        ],
-        "parameters": [
-          {
-            "name": "token",
-            "in": "query"
-          }
         ],
         "requestBody": {
           "content": {
@@ -684,10 +678,7 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "password": {
-                    "type": "string"
-                  },
-                  "confirmation": {
+                  "token": {
                     "type": "string"
                   }
                 }
