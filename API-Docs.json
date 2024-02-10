@@ -846,6 +846,82 @@
           }
         }
       }
+    },
+    "/auth/user": {
+      "get": {
+        "summary": "Get Data Logged User",
+        "tags": [
+          "Authentication"
+        ],
+        "parameters": [
+          {
+            "name": "POWERUP-API-KEY",
+            "in": "header",
+            "description": "User Token"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success get user data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "status_code": {
+                      "type": "number"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "object",
+                      "description": "Data User"
+                    }
+                  }
+                },
+                "example": {
+                  "success": true,
+                  "status_code": 200,
+                  "message": "Success get user data",
+                  "data": {
+                    "id": "9gs72d2-uh77-jnda-zeia8736svi12",
+                    "email": "powerup@gmail.com",
+                    "name": "Kelompok 404",
+                    "emailVerifiedAt": "2024-01-24 00:00:00",
+                    "createdAt": "2024-01-24 00:00:00",
+                    "updatedAt": "2024-01-24 00:00:00"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "boolean"
+                    },
+                    "code": {
+                      "type": "number"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
