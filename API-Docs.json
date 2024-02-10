@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.3",
   "info": {
-    "title": "Authentication API Documentation",
-    "description": "API Documentation for Authentication process in PowerUP",
+    "title": "PowerUp API Documentation",
+    "description": "API Documentation for PowerUp RESTful API Service",
     "version": "1.0.0"
   },
   "servers": [
