@@ -414,7 +414,7 @@
                 }
               },
               "example": {
-                "token": "sdah7y213721wuhuhuasd"
+                "verification_token": "sdah7y213721wuhuhuasd"
               }
             }
           }
@@ -678,7 +678,7 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "token": {
+                  "reset_password_token": {
                     "type": "string"
                   }
                 }
