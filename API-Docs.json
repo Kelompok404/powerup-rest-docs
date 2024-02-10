@@ -906,10 +906,10 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "status": {
+                    "success": {
                       "type": "boolean"
                     },
-                    "code": {
+                    "status_code": {
                       "type": "number"
                     },
                     "message": {
