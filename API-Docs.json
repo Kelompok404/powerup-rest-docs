@@ -906,6 +906,385 @@
                 "schema": {
                   "type": "object",
                   "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "status_code": {
+                      "type": "number"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products/categories": {
+      "get": {
+        "summary": "Get all product categories",
+        "tags": [
+          "Products"
+        ],
+        "parameters": [
+          {
+            "name": "POWERUP-API-KEY",
+            "in": "header",
+            "description": "User Token",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success Get Product Categories",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "status_code": {
+                      "type": "number"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "description": "Data Product Categories"
+                    }
+                  }
+                },
+                "example": {
+                  "success": true,
+                  "status_code": 200,
+                  "message": "Success Get Product Categories",
+                  "data": [
+                    {
+                      "id": 1,
+                      "ref_id": 1,
+                      "name": "Topup Game"
+                    },
+                    {
+                      "id": 2,
+                      "ref_id": 4,
+                      "name": "Pulsa"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "status_code": {
+                      "type": "number"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "success": false,
+                  "status_code": 401,
+                  "message": "Unauthorized"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products/operators": {
+      "get": {
+        "summary": "Get all product operators",
+        "tags": [
+          "Products"
+        ],
+        "parameters": [
+          {
+            "name": "POWERUP-API-KEY",
+            "in": "header",
+            "description": "User Token",
+            "required": true
+          },
+          {
+            "name": "category_id",
+            "in": "query",
+            "required": true
+          },
+          {
+            "name": "amount",
+            "in": "query",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success Get Product Operators",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "status_code": {
+                      "type": "number"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "description": "Data Product Operators"
+                    }
+                  }
+                },
+                "example": {
+                  "success": true,
+                  "status_code": 200,
+                  "message": "Success Get Product Operators",
+                  "data": [
+                    {
+                      "id": 1,
+                      "ref_id": 1,
+                      "category_name": "Topup Game",
+                      "image": "https://www.svgrepo.com/show/303370/freefire-2-logo.svg",
+                      "name": "Free Fire"
+                    },
+                    {
+                      "id": 4,
+                      "ref_id": 2,
+                      "category_name": "Topup Game",
+                      "image": "https://assets.stickpng.com/thumbs/62061920cdd94000043e3951.png",
+                      "name": "Mobile Legends"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "status_code": {
+                      "type": "number"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "success": false,
+                  "status_code": 401,
+                  "message": "Unauthorized"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "status_code": {
+                      "type": "number"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "errors": {
+                      "type": "object"
+                    }
+                  }
+                },
+                "example": {
+                  "success": true,
+                  "status_code": 400,
+                  "message": "Bad Request",
+                  "errors": {
+                    "category_id": [
+                      "tidak boleh kosong"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products/types": {
+      "get": {
+        "summary": "Get all product types",
+        "tags": [
+          "Products"
+        ],
+        "parameters": [
+          {
+            "name": "POWERUP-API-KEY",
+            "in": "header",
+            "description": "User Token",
+            "required": true
+          },
+          {
+            "name": "operator_id",
+            "in": "query",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success Get Product Types",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "status_code": {
+                      "type": "number"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "description": "Data Product Types"
+                    }
+                  }
+                },
+                "example": {
+                  "success": true,
+                  "status_code": 200,
+                  "message": "Success Get Product Types",
+                  "data": [
+                    {
+                      "id": 1,
+                      "ref_id": 4,
+                      "operator_name": "Mobile Legends",
+                      "name": "Mobile Legend New",
+                      "format_form": [
+                        {
+                          "name": "tujuan",
+                          "label": "User ID",
+                          "is_dropdown": false,
+                          "data": []
+                        },
+                        {
+                          "name": "server id",
+                          "label": "Server ID",
+                          "is_dropdown": false,
+                          "data": []
+                        }
+                      ]
+                    },
+                    {
+                      "id": 2,
+                      "ref_id": 296,
+                      "operator_name": "Honkai Star Rail UID",
+                      "name": "Honkai Star Rail UID",
+                      "format_form": [
+                        {
+                          "name": "tujuan",
+                          "label": "User ID",
+                          "is_dropdown": false,
+                          "data": []
+                        },
+                        {
+                          "name": "server id",
+                          "label": "Pilih Server",
+                          "is_dropdown": true,
+                          "data": [
+                            {
+                              "name": "America",
+                              "value": "os_usa"
+                            },
+                            {
+                              "name": "Europe",
+                              "value": "os_euro"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "status_code": {
+                      "type": "number"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "errors": {
+                      "type": "object"
+                    }
+                  }
+                },
+                "example": {
+                  "success": true,
+                  "status_code": 400,
+                  "message": "Bad Request",
+                  "errors": {
+                    "operator_id": [
+                      "tidak boleh kosong"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
                     "status": {
                       "type": "boolean"
                     },
@@ -916,6 +1295,146 @@
                       "type": "string"
                     }
                   }
+                },
+                "example": {
+                  "success": false,
+                  "status_code": 401,
+                  "message": "Unauthorized"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products": {
+      "get": {
+        "summary": "Get all products",
+        "tags": [
+          "Products"
+        ],
+        "parameters": [
+          {
+            "name": "POWERUP-API-KEY",
+            "in": "header",
+            "description": "User Token",
+            "required": true
+          },
+          {
+            "name": "operator_id",
+            "in": "query",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success Get All Products",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "status_code": {
+                      "type": "number"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "description": "Data Products"
+                    }
+                  }
+                },
+                "example": {
+                  "success": true,
+                  "status_code": 200,
+                  "message": "Success Get Product Types",
+                  "data": [
+                    {
+                      "id": 1,
+                      "ref_id": 4081,
+                      "code": "MLBB5",
+                      "category_name": "Topup Game",
+                      "operator_name": "Mobile Legends",
+                      "type_name": "Mobile Legend New",
+                      "name": "5 Diamonds (5 + 0 Bonus)",
+                      "description": ""
+                    },
+                    {
+                      "id": 1,
+                      "ref_id": 4082,
+                      "code": "MLBB10",
+                      "category_name": "Topup Game",
+                      "operator_name": "Mobile Legends",
+                      "type_name": "Mobile Legend New",
+                      "name": "5 Diamonds (5 + 0 Bonus)",
+                      "description": ""
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "status_code": {
+                      "type": "number"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "errors": {
+                      "type": "object"
+                    }
+                  }
+                },
+                "example": {
+                  "success": true,
+                  "status_code": 400,
+                  "message": "Bad Request",
+                  "errors": {
+                    "type_id": [
+                      "tidak boleh kosong"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "boolean"
+                    },
+                    "code": {
+                      "type": "number"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "success": false,
+                  "status_code": 401,
+                  "message": "Unauthorized"
                 }
               }
             }
