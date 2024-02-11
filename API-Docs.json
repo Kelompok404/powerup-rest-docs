@@ -1345,6 +1345,9 @@
                     },
                     "data": {
                       "type": "array",
+                      "items": {
+                        "type": "object"
+                      },
                       "description": "Data Products"
                     }
                   }
@@ -1409,6 +1412,328 @@
                       "tidak boleh kosong"
                     ]
                   }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "boolean"
+                    },
+                    "code": {
+                      "type": "number"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "success": false,
+                  "status_code": 401,
+                  "message": "Unauthorized"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products/home/banners": {
+      "get": {
+        "summary": "Get Image Banner for Homepage",
+        "description": "This will retrive image location for Homepage Carousel",
+        "tags": [
+          "Homepage"
+        ],
+        "parameters": [
+          {
+            "name": "POWERUP-API-KEY",
+            "in": "header",
+            "description": "User Token",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success get data images",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "status_code": {
+                      "type": "number"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "image_url": {
+                            "type": "string"
+                          },
+                          "description": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "success": true,
+                  "status_code": 200,
+                  "message": "Success Get Images",
+                  "data": [
+                    {
+                      "image_url": "https://image.com/banner.webp",
+                      "description": "Homepage Banner"
+                    },
+                    {
+                      "image_url": "https://image.com/banner2.webp",
+                      "description": "Homepage Banner2"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "boolean"
+                    },
+                    "code": {
+                      "type": "number"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "success": false,
+                  "status_code": 401,
+                  "message": "Unauthorized"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products/promos": {
+      "get": {
+        "summary": "Get all product promos",
+        "tags": [
+          "Products", "Homepage"
+        ],
+        "parameters": [
+          {
+            "name": "POWERUP-API-KEY",
+            "in": "header",
+            "description": "User Token",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success get all product promos",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "status_code": {
+                      "type": "number"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number"
+                          },
+                          "product_id": {
+                            "type": "number"
+                          },
+                          "title": {
+                            "type": "string"
+                          },
+                          "percentage": {
+                            "type": "number"
+                          },
+                          "description": {
+                            "type": "string"
+                          },
+                          "link": {
+                            "type": "string"
+                          },
+                          "image_url": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "success": true,
+                  "status_code": 200,
+                  "message": "Success get all product promos",
+                  "data": [
+                    {
+                      "id": 1,
+                      "product_id": 481,
+                      "title": "Topup 200 Diamond Mobile Legends",
+                      "percentage": 10,
+                      "description": "Promo event skin legend",
+                      "link": "https://oursite.com/game/ml",
+                      "image_url": "https://image.com/image.webp"
+                    },
+                    {
+                      "id": 2,
+                      "product_id": 346,
+                      "title": "Topup 100 Gems Clash of Clans",
+                      "percentage": 10,
+                      "description": "",
+                      "link": "https://oursite.com/game/coc",
+                      "image_url": "https://image.com/image2.webp"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "boolean"
+                    },
+                    "code": {
+                      "type": "number"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "success": false,
+                  "status_code": 401,
+                  "message": "Unauthorized"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products/populars": {
+      "get": {
+        "summary": "Get all product popular game",
+        "tags": [
+          "Products", "Homepage"
+        ],
+        "parameters": [
+          {
+            "name": "POWERUP-API-KEY",
+            "in": "header",
+            "description": "User Token",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success get all product popular game",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "status_code": {
+                      "type": "number"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number"
+                          },
+                          "operator_id": {
+                            "type": "number"
+                          },
+                          "image_url": {
+                            "type": "string"
+                          },
+                          "description": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "success": true,
+                  "status_code": 200,
+                  "message": "Success get all product promos",
+                  "data": [
+                    {
+                      "id": 1,
+                      "product_id": 481,
+                      "title": "Topup 200 Diamond Mobile Legends",
+                      "percentage": 10,
+                      "description": "Promo event skin legend",
+                      "image_url": "https://image.com/image.webp"
+                    },
+                    {
+                      "id": 2,
+                      "product_id": 346,
+                      "title": "Topup 100 Gems Clash of Clans",
+                      "percentage": 10,
+                      "description": "",
+                      "image_url": "https://image.com/image2.webp"
+                    }
+                  ]
                 }
               }
             }
