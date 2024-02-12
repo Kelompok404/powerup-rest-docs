@@ -1011,7 +1011,7 @@
     },
     "/products/operators": {
       "get": {
-        "summary": "Get all product operators",
+        "summary": "Get all product operators for specific category",
         "tags": [
           "Products"
         ],
@@ -1145,7 +1145,7 @@
     },
     "/products/types": {
       "get": {
-        "summary": "Get all product types",
+        "summary": "Get all product types for specific operator",
         "tags": [
           "Products"
         ],
@@ -1309,7 +1309,7 @@
     },
     "/products": {
       "get": {
-        "summary": "Get all products",
+        "summary": "Get all products for specific type",
         "tags": [
           "Products"
         ],
