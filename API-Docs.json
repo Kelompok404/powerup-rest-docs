@@ -1880,6 +1880,134 @@
           }
         }
       }
+    },
+    "/payments/payment_methods": {
+      "parameters": [
+        {
+          "name": "POWERUP-API-KEY",
+          "in": "header"
+        }
+      ],
+      "get": {
+        "summary": "Get All Payment Methods",
+        "tags": [
+          "Payment"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success Get All Payment Methods",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "status_code": {
+                      "type": "number"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          },
+                          "code": {
+                            "type": "string"
+                          },
+                          "object": {
+                            "type": "string",
+                            "description": "String JSON | Payment Method Object in Xendit"
+                          },
+                          "channel_list": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "type_code": {
+                                  "type": "string"
+                                },
+                                "channel_code": {
+                                  "type": "string"
+                                },
+                                "name": {
+                                  "type": "string"
+                                },
+                                "icon": {
+                                  "type": "string"
+                                },
+                                "object": {
+                                  "type": "string",
+                                  "description": "String JSON | Channel Object in Xendit"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "success": true,
+                  "status_code": 200,
+                  "message": "Success Get All Payment Methods",
+                  "data": [
+                    {
+                      "name": "E-Wallet",
+                      "code": "EWALLET",
+                      "object": "",
+                      "channel_list": [
+                        {
+                          "type_code": "EWALLET",
+                          "channel_code": "DANA",
+                          "name": "DANA",
+                          "icon": "https://image.com/icon.png",
+                          "object": ""
+                        },
+                        {
+                          "type_code": "EWALLET",
+                          "channel_code": "SHOPEEPAY",
+                          "name": "ShopeePay",
+                          "icon": "https://image.com/icon.png",
+                          "object": ""
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Virtual Account",
+                      "code": "VIRTUAL_ACCOUNT",
+                      "object": "",
+                      "channel_list": [
+                        {
+                          "type_code": "VIRTUAL_ACCOUNT",
+                          "channel_code": "BCA",
+                          "name": "BCA",
+                          "icon": "https://image.com/icon.png",
+                          "object": ""
+                        },
+                        {
+                          "type_code": "VIRTUAL_ACCOUNT",
+                          "channel_code": "BNI",
+                          "name": "BNI",
+                          "icon": "https://image.com/icon.png",
+                          "object": ""
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
